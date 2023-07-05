@@ -1,0 +1,32 @@
+<p style="color: green"><%= notice %></p>
+<h1>Animals</h1>
+<div class="table-responsive" id="animals">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>id</th>
+        <th>nombre</th>
+        <th>farmer</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @animals.each do |animal| %>
+        <tr>
+          <td><%= animal.id%></td>
+          <td><%= animal.name%></td>
+          <td><%= animal.farmer.name%></td>
+          <td>
+            <div class="btn-group" role="group" aria-label="Basic example">
+              <%= link_to "Show", animal,class:'btn btn-outline-primary btn-sm' %>
+              <%= link_to "Edit", edit_animal_path(animal), class:"btn btn-outline-success btn-sm" %>
+              <%= button_to "Destroy", animal, method: :delete, class:"btn btn-outline-danger btn-sm" %>
+            </div>
+          </td>
+        </tr>
+      <%end%>
+    </tbody>
+  </table>
+  <br>
+</div>
+<%= link_to "New animal", new_animal_path %>
