@@ -3,7 +3,7 @@ class FarmsController < ApplicationController
 
   # GET /farms or /farms.json
   def index
-    @farms = Farm.all
+    @pagy, @farms = pagy(Farm.all)
   end
 
   # GET /farms/1 or /farms/1.json

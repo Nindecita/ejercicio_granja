@@ -1,7 +1,5 @@
 <p style="color: green"><%= notice %></p>
-
 <h1>Farms</h1>
-
 <div id="farms">
   <% @farms.each do |farm| %>
     <%= render farm %>
@@ -10,5 +8,36 @@
     </p>
   <% end %>
 </div>
-
 <%= link_to "New farm", new_farm_path %>
+<p style="color: green"><%= notice %></p>
+<h1>Granjas</h1>
+<div class="table-responsive" id="farms">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Nombre</th>
+        <th>Granjero</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @farms.each do |farm| %>
+        <tr>
+          <td><%= farm.id%></td>
+          <td><%= farm.name%></td>
+          <td><%= farm.farmer.name%></td>
+          <td>
+            <div class="btn-group" role="group" aria-label="Basic example">
+              <%= link_to "Mostrar", farm, class:"btn btn-outline-primary btn-sm" %>
+              <%= link_to "Editar", edit_farm_path(farm), class:"btn btn-outline-success btn-sm" %>
+              <%= button_to "Eliminar", farm, method: :delete, class:"btn btn-outline-danger btn-sm" %>
+            </div>
+          </td>
+        </tr>
+      <%end%>
+    </tbody>
+  </table>
+  <br>
+</div>
+<%= link_to "Nueva granja", new_farm_path, class:"btn btn-outline-warning btn-lg" %>

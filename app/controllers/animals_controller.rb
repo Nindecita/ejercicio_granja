@@ -3,7 +3,7 @@ class AnimalsController < ApplicationController
 
   # GET /animals or /animals.json
   def index
-    @animals = Animal.all
+    @pagy, @animals = pagy(Animal.all)
   end
 
   # GET /animals/1 or /animals/1.json
@@ -18,6 +18,7 @@ class AnimalsController < ApplicationController
 
   # GET /animals/1/edit
   def edit
+    @farmers = Farmer.all
   end
 
   # POST /animals or /animals.json
@@ -67,6 +68,6 @@ class AnimalsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def animal_params
-      params.require(:animal).permit(:name)
+      params.require(:animal).permit(:name, :farmer_id)
     end
 end

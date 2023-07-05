@@ -76,3 +76,5 @@ gem "bootstrap", "~> 5.2"
 gem "popper_js", "~> 2.11"
 
 gem "jquery-rails", "~> 4.6"
+
+gem "pagy", "~> 6.0"
